@@ -5,7 +5,7 @@ import {check} from "k6"
 import http from "k6/http"
 
 // __ENV access to the environment variables
-const host = `${__ENV.TEST_ENDPOINT}/get`
+const host = `http://k6-target/get`
 
 export default function() {
     const response = http.get(host)

@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  k6-target:
+    container_name: k6-target
+    hostname: k6-target
+    image: kennethreitz/httpbin
+    ports:
+      - "80:80"
+  k6:
+    image: grafana/k6:0.42.0
+    container_name: k6
+    tty: true
+    entrypoint:
+    - /bin/sh
+    volumes:
+      - "./src:/app"
+    working_dir: /app
